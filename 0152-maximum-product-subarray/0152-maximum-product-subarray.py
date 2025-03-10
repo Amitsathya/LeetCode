@@ -1,12 +1,14 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        res = nums[0]
-        curMin, curMax = 1, 1
+        res = max(nums)
+        currMax, currMin = 1, 1
         
         for n in nums:
-            temp = curMax * n
-            curMax = max(temp, curMin * n, n)
-            curMin = min(temp, curMin * n, n)
-            res = max(res, curMax)
+            if n == 0:
+                currMax, currMin = 1, 1
+            temp = currMax * n
+            currMax = max(currMax * n, currMin * n, n)
+            currMin = min(temp, currMin * n, n)
+            res = max(res, currMax)
         return res
         
