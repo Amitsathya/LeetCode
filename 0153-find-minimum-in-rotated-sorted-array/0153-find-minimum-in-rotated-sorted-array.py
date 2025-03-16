@@ -5,13 +5,11 @@ class Solution:
         while l <= r:
             if nums[l] <= nums[r]:
                 res = min(res, nums[l])
-                break
+                return res
             m = (l + r) // 2
             res = min(res, nums[m])
-            if nums[l] <= nums[m]:
-                l = m + 1
+            if nums[l] > nums[m]:
+                r -= 1
             else:
-                r = m - 1
+                l += 1
         return res
-                
-        
