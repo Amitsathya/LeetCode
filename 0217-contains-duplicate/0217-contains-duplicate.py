@@ -5,4 +5,5 @@ class Solution:
             if n in res:
                 return True
             res.add(n)
+        return False
         
