@@ -1,32 +1,27 @@
-class Solution(object):
-    def pacificAtlantic(self, heights):
-        """
-        :type heights: List[List[int]]
-        :rtype: List[List[int]]
-        """
-        pacific_visit = set()
-        atlantic_visit = set()
-        
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        pacific_visited = set()
+        atlantic_visitied = set()
+        rows, cols = len(heights), len(heights[0])
         def dfs(r, c, visited):
             visited.add((r, c))
             directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
             for dr, dc in directions:
                 row, col = r + dr, c + dc
-                if (0 <= row < len(heights) and 0 <= col < len(heights[0]) and (row, col) not in visited and heights[r][c] <= heights[row][col]):
+                if ((row) in range(rows) and (col) in range(cols) and (row, col) not in visited and heights[row][col] >= heights[r][c]):
                     dfs(row, col, visited)
         
-        for i in range(len(heights[0])):
-            dfs(0, i, pacific_visit)
-            dfs(len(heights) - 1, i, atlantic_visit)
-
-        for i in range(len(heights)):
-            dfs(i, 0, pacific_visit)
-            dfs(i, len(heights[0]) - 1, atlantic_visit)
+        for i in range(rows):
+            dfs(0, i, pacific_visited)
+            dfs(rows - 1, i, atlantic_visitied)
+        
+        for j in range(cols):
+            dfs(j, 0, pacific_visited)
+            dfs(j, cols - 1, atlantic_visitied)
         res = []
-        for r  in range(len(heights)):
-            for c in range(len(heights[0])):
-                if (r, c) in pacific_visit and (r, c) in atlantic_visit:
+        for r in range(rows):
+            for c in range(cols):
+                if (r, c) in pacific_visited and (r, c) in atlantic_visitied:
                     res.append((r, c))
         return res
-
         
