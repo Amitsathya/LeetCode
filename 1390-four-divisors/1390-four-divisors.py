@@ -7,6 +7,8 @@ class Solution:
                 if n % i == 0:
                     divisors.add(n // i)
                     divisors.add(i)
+                if len(divisors) > 4:    
+                    break
             if len(divisors) == 4:
                 res += sum(divisors)
         return res
