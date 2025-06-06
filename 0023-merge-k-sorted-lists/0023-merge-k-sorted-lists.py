@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        if not lists or  len(lists) == 0 : return None
+        if not lists or len(lists) == 0: return None
 
         while len(lists) > 1:
             mergedLists = []
@@ -28,5 +28,4 @@ class Solution:
             dummy = dummy.next
         dummy.next = list1 or list2
         return node.next
-        
-        
+            
