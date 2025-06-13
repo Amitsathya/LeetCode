@@ -10,14 +10,14 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: int
         """
-        res=[root.val]
+        res = [root.val]
 
         def dfs(node):
             if not node:
                 return 0
-            
             leftMax = max(dfs(node.left), 0)
             rightMax = max(dfs(node.right), 0)
+
             res[0] = max(res[0], node.val + leftMax + rightMax)
 
             return node.val + max(leftMax, rightMax)
