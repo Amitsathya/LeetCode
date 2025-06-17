@@ -1,26 +1,21 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
+# class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
-    def maxPathSum(self, root):
-        """
-        :type root: Optional[TreeNode]
-        :rtype: int
-        """
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
         res = [root.val]
 
-        def dfs(node):
-            if not node:
+        def dfs(root):
+            if not root:
                 return 0
-            leftMax = max(dfs(node.left), 0)
-            rightMax = max(dfs(node.right), 0)
 
-            res[0] = max(res[0], node.val + leftMax + rightMax)
-
-            return node.val + max(leftMax, rightMax)
+            leftMax = max(dfs(root.left), 0)
+            rightMax = max(dfs(root.right), 0)
+            res[0] = max(res[0], root.val + leftMax + rightMax)
+            return root.val + max(leftMax, rightMax)
         dfs(root)
         return res[0]
         
