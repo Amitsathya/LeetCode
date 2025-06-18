@@ -6,9 +6,9 @@ class Solution:
         visited = set()
 
         def bfs(r, c):
-            visited.add((r, c))
             queue = deque()
             queue.append((r, c))
+            visited.add((r, c))
 
             while queue:
                 row, col = queue.popleft()
@@ -18,11 +18,11 @@ class Solution:
                     if 0 <= r < ROWS and 0 <= c < COLS and (r, c) not in visited and grid[r][c] == "1":
                         queue.append((r, c))
                         visited.add((r, c))
+
         for r in range(ROWS):
             for c in range(COLS):
                 if (r, c) not in visited and grid[r][c] == "1":
                     bfs(r, c)
                     islands += 1
         return islands
-                
         
