@@ -1,11 +1,12 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
+        if not grid: return 0
 
         ROWS, COLS = len(grid), len(grid[0])
         islands = 0
         visited = set()
 
-        def bfs(r, c):
+        def dfs(r, c):
             queue = deque()
             queue.append((r, c))
             visited.add((r, c))
@@ -18,11 +19,10 @@ class Solution:
                     if 0 <= r < ROWS and 0 <= c < COLS and (r, c) not in visited and grid[r][c] == "1":
                         queue.append((r, c))
                         visited.add((r, c))
-
         for r in range(ROWS):
             for c in range(COLS):
                 if (r, c) not in visited and grid[r][c] == "1":
-                    bfs(r, c)
+                    dfs(r, c)
                     islands += 1
         return islands
         
