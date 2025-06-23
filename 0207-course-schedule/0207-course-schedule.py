@@ -1,32 +1,30 @@
-class Solution(object):
-    def canFinish(self, numCourses, prerequisites):
-        """
-        :type numCourses: int
-        :type prerequisites: List[List[int]]
-        :rtype: bool
-        """
-        hashMap = {i:[] for i in range(numCourses)}
-        for cse, pre in prerequisites:
-            hashMap[cse].append(pre)
-        
-        visiting = set()
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        visited = set()
+        finished = set()
+        graph = defaultdict(list)
+
         def dfs(course):
-            if course in visiting:
+            if course in visited:
                 return False
-            if hashMap[course] == []:
+            if course in finished:
                 return True
             
-            visiting.add(course)
-            for pre in hashMap[course]:
+            visited.add(course)
+            for pre in graph[course]:
                 if not dfs(pre):
                     return False
-            visiting.remove(course)
-            hashMap[course] = []
+            visited.remove(course)
+            finished.add(course)
             return True
+
+
+        for pre, course in prerequisites:
+            graph[course].append(pre)
         
-        for c in range(numCourses):
-            if not dfs(c):
+        for course in range(numCourses):
+            if not dfs(course):
                 return False
+        
         return True
 
-        
