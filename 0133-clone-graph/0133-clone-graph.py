@@ -10,6 +10,7 @@ from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if not node: return None
+
         oldToCopy = {}
 
         def dfs(node):
@@ -22,4 +23,3 @@ class Solution:
                 copy.neighbors.append(dfs(nei))
             return copy
         return dfs(node)
-        
