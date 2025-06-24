@@ -3,7 +3,7 @@ class Solution:
         visited = set()
         finished = set()
         graph = defaultdict(list)
-
+        
         def dfs(course):
             if course in visited:
                 return False
@@ -17,14 +17,11 @@ class Solution:
             visited.remove(course)
             finished.add(course)
             return True
-
-
-        for pre, course in prerequisites:
+        
+        for course, pre in prerequisites:
             graph[course].append(pre)
-        
-        for course in range(numCourses):
-            if not dfs(course):
-                return False
-        
-        return True
 
+        for i in range(numCourses):
+            if not dfs(i):
+                return False
+        return True      
