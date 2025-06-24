@@ -1,13 +1,11 @@
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        atlantic_visited = set()
-        pacific_visited = set()
         ROWS, COLS = len(heights), len(heights[0])
-
+        atlantic_visited, pacific_visited = set(), set()
+        
         def dfs(r, c, visited):
             visited.add((r, c))
-            directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
-
+            directions = [[-1, 0], [0, -1], [0, 1], [1, 0]]
             for dr, dc in directions:
                 row, col = r + dr, c + dc
                 if 0 <= row < ROWS and 0 <= col < COLS and (row, col) not in visited and heights[r][c] <= heights[row][col]:
@@ -21,8 +19,8 @@ class Solution:
             dfs(0, j, pacific_visited)
             dfs(ROWS - 1, j, atlantic_visited)
         res = []
-        for r in range(ROWS):
-            for c in range(COLS):
-                if (r, c) in atlantic_visited and (r, c) in pacific_visited:
-                    res.append((r, c))
+        for i in range(ROWS):
+            for j in range(COLS):
+                if (i, j) in atlantic_visited and (i, j) in pacific_visited:
+                    res.append((i, j))
         return res
