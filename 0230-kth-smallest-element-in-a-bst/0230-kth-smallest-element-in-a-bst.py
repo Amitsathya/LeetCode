@@ -14,6 +14,7 @@ class Solution:
             while curr:
                 stack.append(curr)
                 curr = curr.left
+            
             n += 1
             curr = stack.pop()
             if n == k:
