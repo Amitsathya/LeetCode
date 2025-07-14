@@ -1,7 +1,7 @@
 class TrieNode():
     def __init__(self):
         self.children = {}
-        self.word = False
+        self.endOfWord = False
 
 class WordDictionary:
     def __init__(self):
@@ -13,7 +13,7 @@ class WordDictionary:
             if c not in curr.children:
                 curr.children[c] = TrieNode()
             curr = curr.children[c]
-        curr.word = True       
+        curr.endOfWord = True        
 
     def search(self, word: str) -> bool:
         def dfs(i, curr):
@@ -28,13 +28,5 @@ class WordDictionary:
                     if c not in curr.children:
                         return False
                     curr = curr.children[c]
-            return curr.word                
-        
+            return curr.endOfWord
         return dfs(0, self.root)
-
-
-
-# Your WordDictionary object will be instantiated and called as such:
-# obj = WordDictionary()
-# obj.addWord(word)
-# param_2 = obj.search(word)word[j]
