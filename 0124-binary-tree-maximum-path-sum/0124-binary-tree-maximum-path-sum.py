@@ -11,11 +11,13 @@ class Solution:
         def bfs(root):
             if not root:
                 return 0
-
             leftMax = max(bfs(root.left), 0)
             rightMax = max(bfs(root.right), 0)
-            res[0] = max(res[0], root.val + leftMax + rightMax)
-            return root.val + max(leftMax, rightMax)
+            res[0] = max(res[0], leftMax + rightMax + root.val)
+
+            return max(leftMax, rightMax) + root.val
         bfs(root)
         return res[0]
+            
+
         
