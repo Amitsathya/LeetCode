@@ -9,12 +9,12 @@ class Solution:
         n = 0
         curr = root
         stack = []
-        while stack or curr:
+        while curr or stack:
             while curr:
                 stack.append(curr)
                 curr = curr.left
-            curr = stack.pop()
             n += 1
+            curr = stack.pop()
             if n == k:
                 return curr.val
             curr = curr.right
