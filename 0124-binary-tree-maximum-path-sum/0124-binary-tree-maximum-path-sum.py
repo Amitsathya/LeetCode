@@ -8,16 +8,11 @@ class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         res = [root.val]
 
-        def bfs(root):
-            if not root:
-                return 0
-            leftMax = max(bfs(root.left), 0)
-            rightMax = max(bfs(root.right), 0)
+        def dfs(root):
+            if not root: return 0
+            leftMax = max(dfs(root.left), 0)
+            rightMax = max(dfs(root.right), 0)
             res[0] = max(res[0], leftMax + rightMax + root.val)
-
             return max(leftMax, rightMax) + root.val
-        bfs(root)
+        dfs(root)
         return res[0]
-            
-
-        
