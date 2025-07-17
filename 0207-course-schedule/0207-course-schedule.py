@@ -19,7 +19,7 @@ class Solution:
             visited.remove(course)
             finished.add(course)
             return True
-        for n in range(numCourses):
-            if not dfs(n):
+        for i in range(numCourses):
+            if not dfs(i):
                 return False
         return True
