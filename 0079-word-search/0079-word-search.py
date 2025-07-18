@@ -1,13 +1,14 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        ROWS, COLS = len(board), len(board[0])
         path = set()
+        ROWS, COLS = len(board), len(board[0])
 
         def dfs(r, c, i):
-            if i == len(word):
+            if  i == len(word):
                 return True
-            if r < 0 or r >= ROWS or c < 0 or c >= COLS or (r, c) in path or board[r][c] != word[i]:
+            if  r < 0 or r >= ROWS or c < 0 or c >= COLS or board[r][c] != word[i] or (r, c) in path:
                 return False
+            
             path.add((r, c))
             directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
             for dr, dc in directions:
