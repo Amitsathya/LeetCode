@@ -3,7 +3,6 @@ class Solution:
         first, second = 1, 1
         for i in range(n):
             temp = first + second
-            second = first
-            first = temp
-        return second
-        
+            first = second
+            second = temp
+        return first
