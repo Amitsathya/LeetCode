@@ -6,7 +6,6 @@ class Solution:
             if total == target:
                 res.append(curr.copy())
                 return
-
             if i >= len(candidates) or total > target:
                 return
             
