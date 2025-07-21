@@ -6,4 +6,3 @@ class Solution:
             first = second
             second = temp
         return second
-        
