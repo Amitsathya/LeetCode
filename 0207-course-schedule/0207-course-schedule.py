@@ -1,12 +1,10 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        visited = set()
+        visited  = set()
         finished = set()
-        graph = defaultdict(list)
-
+        graph = {i:[] for i in range(numCourses)}
         for course, pre in prerequisites:
             graph[course].append(pre)
-        
         def dfs(course):
             if course in visited:
                 return False
