@@ -12,13 +12,15 @@ class Solution:
         if not node: return None
 
         oldToCopy = {}
-
+        
         def dfs(node):
             if node in oldToCopy:
                 return oldToCopy[node]
+            
             copy = Node(node.val)
             oldToCopy[node] = copy
             for nei in node.neighbors:
                 copy.neighbors.append(dfs(nei))
             return copy
         return dfs(node)
+            
