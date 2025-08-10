@@ -4,13 +4,10 @@ class Solution:
         dp[0] = True
 
         for i in range(len(s)):
-            if not dp[i]:  # Skip if this index can't be formed
+            if not dp[i]:
                 continue
-
+            
             for w in wordDict:
-                if i + len(w) <= len(s) and s[i:i+len(w)] == w:
-                    dp[i + len(w)] = True
-
+                if len(w) + i <= len(s) and s[i:i + len(w)] in wordDict:
+                    dp[len(w) + i] = True
         return dp[len(s)]
-
-        
