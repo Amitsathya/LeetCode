@@ -1,11 +1,11 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        return max(nums[0], self.Rob2(nums[1:]), self.Rob2(nums[:-1]))
-    
-    def Rob2(self, nums):
-        rob1, rob2 = 0, 0
-        for n in nums:
-            temp = max(rob1 + n, rob2)
-            rob1 = rob2
-            rob2 = temp
-        return rob2
+        return max(self.helperRob(nums[:-1]), self.helperRob(nums[1:]), nums[0])
+
+    def helperRob(self,nums):
+        first, second = 0, 0
+        for i in range(len(nums)):
+            temp = max(second + nums[i], first)
+            second = first
+            first = temp
+        return first
