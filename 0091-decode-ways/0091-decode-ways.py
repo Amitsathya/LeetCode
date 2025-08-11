@@ -1,11 +1,11 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
-        dp = {len(s): 1}
+        dp = { len(s): 1}
 
         def dfs(i):
             if i in dp:
                 return dp[i]
-            
+                
             if s[i] == "0":
                 return 0
             
@@ -15,6 +15,3 @@ class Solution:
             dp[i] = res
             return res
         return dfs(0)
-
-
-        
