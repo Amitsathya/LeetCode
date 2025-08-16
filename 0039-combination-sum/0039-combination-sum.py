@@ -8,7 +8,6 @@ class Solution:
                 return
             if i >= len(candidates) or total > target:
                 return
-            
             curr.append(candidates[i])
             dfs(i, curr, total + candidates[i])
             curr.pop()
