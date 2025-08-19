@@ -11,4 +11,3 @@ class Solution:
                 res += 1
                 lastEnd = min(end, lastEnd)
         return res
-        
