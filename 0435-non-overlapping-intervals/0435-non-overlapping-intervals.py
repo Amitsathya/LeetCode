@@ -5,7 +5,7 @@ class Solution:
         lastEnd = intervals[0][1]
 
         for start, end in intervals[1:]:
-            if start >= lastEnd:
+            if lastEnd <= start:
                 lastEnd = end
             else:
                 res += 1
