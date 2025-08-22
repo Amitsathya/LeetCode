@@ -4,14 +4,12 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         l, r = 0, len(matrix) - 1
-
         while l < r:
+            top, bottom = l, r
             for i in range(r - l):
-                top, bottom = l, r
+                topLeft = matrix[top][l + i]
 
-                topLeft = matrix[top][i + l]
-
-                matrix[top][i + l] = matrix[bottom - i][l]
+                matrix[top][l + i] = matrix[bottom - i][l]
 
                 matrix[bottom - i][l] = matrix[bottom][r - i]
 
