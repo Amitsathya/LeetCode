@@ -5,7 +5,6 @@ class Solution:
         for i, v in enumerate(nums):
             if v > 0:
                 break
-            
             if i > 0 and nums[i - 1] == v:
                 continue
             
