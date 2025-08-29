@@ -15,7 +15,8 @@ class WordDictionary:
             if c not in curr.children:
                 curr.children[c] = TrieNode()
             curr = curr.children[c]
-        curr.endOfWord = True      
+        curr.endOfWord = True    
+        
 
     def search(self, word: str) -> bool:
         def dfs(j, curr):
@@ -30,8 +31,9 @@ class WordDictionary:
                     if c not in curr.children:
                         return False
                     curr = curr.children[c]
-            return curr.endOfWord        
-        return dfs(0, self.root)
+            return curr.endOfWord
+        return dfs(0,self.root)
+
         
 
 
