@@ -8,12 +8,12 @@ class Solution:
         if len(lists) == 0 or not lists: return None
 
         while len(lists) > 1:
-            level = []
-            for i in range(0, len(lists), 2):
+            res = []
+            for i in range(0,len(lists), 2):
                 list1 = lists[i]
                 list2 = lists[i + 1] if (i + 1) < len(lists) else None
-                level.append(self.mergeTwoLists(list1, list2))
-            lists = level
+                res.append(self.mergeTwoLists(list1, list2))
+            lists = res
         return lists[0]
 
     def mergeTwoLists(self, list1, list2):
