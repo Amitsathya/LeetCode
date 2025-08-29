@@ -1,9 +1,8 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        LEN = [1] * len(nums)
-
+        LENS = [1] * len(nums)
         for i in range(len(nums) - 1, -1, -1):
-            for j in range(i + 1, len(nums)):
+            for j in range(i, len(nums)):
                 if nums[i] < nums[j]:
-                    LEN[i] = max(LEN[i], 1 + LEN[j])
-        return max(LEN)
+                    LENS[i] = max(LENS[i], 1 + LENS[j])
+        return max(LENS)
