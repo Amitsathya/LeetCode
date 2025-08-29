@@ -16,3 +16,4 @@ class Solution:
             for c in range(COLS):
                 if row[r] or col[c]:
                     matrix[r][c] = 0
+        return matrix
