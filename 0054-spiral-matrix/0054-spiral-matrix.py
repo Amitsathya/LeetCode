@@ -1,8 +1,8 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        res = []
         l, r = 0, len(matrix[0])
         top, bottom = 0, len(matrix)
-        res = []
         while l < r and top < bottom:
             for i in range(l, r):
                 res.append(matrix[top][i])
@@ -14,7 +14,7 @@ class Solution:
 
             if not (l < r and top < bottom):
                 break
-            
+
             for i in range(r - 1, l - 1, -1):
                 res.append(matrix[bottom - 1][i])
             bottom -= 1
