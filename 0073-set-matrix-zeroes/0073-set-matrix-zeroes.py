@@ -5,15 +5,14 @@ class Solution:
         """
         ROWS, COLS = len(matrix), len(matrix[0])
         row, col = [False] * ROWS, [False] * COLS
-
         for r in range(ROWS):
             for c in range(COLS):
                 if matrix[r][c] == 0:
                     row[r] = True
                     col[c] = True
-        
         for r in range(ROWS):
             for c in range(COLS):
                 if row[r] or col[c]:
                     matrix[r][c] = 0
         return matrix
+        
