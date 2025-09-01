@@ -19,20 +19,22 @@ class WordDictionary:
         
 
     def search(self, word: str) -> bool:
-        def dfs(j, curr):
+        def dfs(j, root):
             for i in range(j, len(word)):
                 c = word[i]
-                if c == ".":
-                    for child in curr.children.values():
+                if c == '.':
+                    children = root.children.values()
+                    for child in children:
                         if dfs(i + 1, child):
                             return True
                     return False
                 else:
-                    if c not in curr.children:
+                    if c not in root.children:
                         return False
-                    curr = curr.children[c]
-            return curr.endOfWord
-        return dfs(0,self.root)
+                    root = root.children[c]
+            return root.endOfWord
+        return dfs(0, self.root)
+                
 
         
 
