@@ -2,11 +2,10 @@ class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         ROWS, COLS = len(board), len(board[0])
         path = set()
-
         def dfs(r, c, i):
             if i == len(word):
                 return True
-            if r < 0 or r >= ROWS or c < 0 or c >= COLS or board[r][c] != word[i] or (r, c) in path:
+            if r >= ROWS or r < 0 or c >= COLS or c < 0 or board[r][c] != word[i] or (r, c) in path:
                 return False
             
             path.add((r, c))
