@@ -1,22 +1,22 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        visited, finished = set(), set()
-        adj = {i: [] for i in range(numCourses)}
+        adj = {i: set() for i in range(numCourses)}
         for course, pre in prerequisites:
-            adj[course].append(pre)
-        def dfs(n):
-            if n in visited:
+            adj[course].add(pre)
+        visited, finished = set(), set()
+        def dfs(c):
+            if c in visited:
                 return False
-            if n in finished:
+            if c in finished:
                 return True
-            visited.add(n)
-            for nei in adj[n]:
+            visited.add(c)
+            for nei in adj[c]:
                 if not dfs(nei):
                     return False
-            visited.remove(n)
-            finished.add(n)
+            visited.remove(c)
+            finished.add(c)
             return True
-        for i in range(numCourses):
-            if not dfs(i):
+        for c in adj:
+            if not dfs(c):
                 return False
         return True
