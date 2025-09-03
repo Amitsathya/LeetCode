@@ -8,10 +8,10 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        fast, slow = head.next, head
+        slow, fast = head, head.next
         while fast and fast.next:
-            fast = fast.next.next
             slow = slow.next
+            fast = fast.next.next
         second = slow.next
         prev = slow.next = None
         while second:
