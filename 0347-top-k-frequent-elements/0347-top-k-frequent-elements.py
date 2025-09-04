@@ -4,11 +4,11 @@ class Solution:
         count = [[] for i in range(len(nums) + 1)]
         for n in nums:
             freq[n] = freq.get(n, 0) + 1
-        for key, value in freq.items():
-            count[value].append(key)
+        for v, i in freq.items():
+            count[i].append(v)
         res = []
         for i in range(len(count) -1, -1, -1):
-            for n in count[i]:
-                res.append(n)
+            for v in count[i]:
+                res.append(v)
                 if len(res) == k:
                     return res
