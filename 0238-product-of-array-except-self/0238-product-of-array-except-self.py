@@ -9,4 +9,4 @@ class Solution:
         for i in range(len(nums) - 1, -1, -1):
             res[i] *= prefix
             prefix *= nums[i]
-        return res 
+        return res
