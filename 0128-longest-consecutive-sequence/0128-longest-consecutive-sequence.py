@@ -4,7 +4,7 @@ class Solution:
         longest = 0
         for n in nums:
             if n - 1 not in nums:
-                length = 0
+                length = 1
                 while n + length in nums:
                     length += 1
                 longest = max(longest, length)
