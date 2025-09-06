@@ -2,7 +2,7 @@ class TrieNode:
     def __init__(self):
         self.children = {}
         self.endOfWord = False
-    
+
     def addWord(self, word):
         curr = self
         for c in word:
@@ -16,27 +16,23 @@ class Solution:
         root = TrieNode()
         for w in words:
             root.addWord(w)
-        
         ROWS, COLS = len(board), len(board[0])
-        res, visited = set(), set()
-
-        def dfs(r, c, node, word):
-            if 0 > r or 0 > c or r >= ROWS or c >= COLS or (r, c) in visited or board[r][c] not in node.children:
+        res, visit = set(), set()
+        def dfs(r, c, word, node):
+            if r < 0 or c < 0 or r >= ROWS or c >= COLS or board[r][c] not in node.children or (r, c) in visit:
                 return
-            
-            visited.add((r, c))
-            node = node.children[board[r][c]]
+            visit.add((r, c))
             word += board[r][c]
+            node = node.children[board[r][c]]
             if node.endOfWord:
                 res.add(word)
-            
             directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
             for dr, dc in directions:
-                row, col = dr + r, dc + c
-                dfs(row, col, node, word)
-            visited.remove((r, c))
-
+                row, col = r + dr, c + dc
+                dfs(row, col, word, node)
+            visit.remove((r, c))
         for r in range(ROWS):
             for c in range(COLS):
-                dfs(r, c, root, "")
-        return list(res)       
+                dfs(r, c, "", root)
+        return list(res)
+        
