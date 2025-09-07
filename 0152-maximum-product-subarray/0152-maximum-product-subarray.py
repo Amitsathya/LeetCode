@@ -1,8 +1,7 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         res = nums[0]
-        currMax = 1
-        currMin = 1
+        currMax, currMin = 1, 1
         for n in nums:
             if n == 0:
                 currMax, currMin = 1, 1
