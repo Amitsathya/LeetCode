@@ -12,7 +12,7 @@ class Solution:
                 matrix[top][l + i] = matrix[bottom - i][l]
 
                 matrix[bottom - i][l] = matrix[bottom][r - i]
-
+                
                 matrix[bottom][r - i] = matrix[top + i][r]
 
                 matrix[top + i][r] = topLeft
