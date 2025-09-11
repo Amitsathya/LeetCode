@@ -14,4 +14,3 @@ class Solution:
                 res += maxR - height[r]
         return res
 
-        
