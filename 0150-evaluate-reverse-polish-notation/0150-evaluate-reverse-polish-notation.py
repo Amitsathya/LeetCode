@@ -1,20 +1,17 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-        stack = []
-        for t in tokens:
-            if t == '+':
-                stack.append(stack.pop() + stack.pop())
-            elif t == '-':
-                a, b = stack.pop(), stack.pop()
-                stack.append(b - a)
-            elif t == '*':
-                stack.append(stack.pop() * stack.pop())
-            elif t == '/':
-                a, b = stack.pop(), stack.pop()
-                stack.append(int(b / a))
+        res = []
+        for c in tokens:
+            if c == '+':
+                res.append(res.pop() + res.pop())
+            elif c == '*':
+                res.append(res.pop() * res.pop())
+            elif c == '-':
+                val1, val2 = res.pop(), res.pop()
+                res.append(val2 - val1)
+            elif c == '/':
+                val1, val2 = res.pop(), res.pop()
+                res.append(int(val2 / val1))
             else:
-                stack.append(int(t))
-        return stack[0]
-
-            
-        
+                res.append(int(c))
+        return res[0]
