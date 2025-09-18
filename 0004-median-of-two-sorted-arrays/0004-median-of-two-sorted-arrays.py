@@ -4,26 +4,26 @@ class Solution:
         total = len(A) + len(B)
         half = total // 2
 
-        if len(B) < len(A):
+        if len(A) > len(B):
             A, B = B, A
         
         l, r = 0, len(A) - 1
         while True:
             i = (l + r) // 2
             j = half - i - 2
-
-            ALeft = A[i] if i >= 0 else float('-inf')
-            BLeft = B[j] if j >= 0 else float('-inf')
-            Aright = A[i + 1] if i + 1 < len(A) else float('inf')
-            Bright = B[j + 1] if j + 1 < len(B) else float('inf')
             
-            if ALeft <= Bright and BLeft <= Aright:
+            leftA = A[i] if i >= 0 else float('-inf')
+            leftB = B[j] if j >= 0 else float('-inf')
+            rightA = A[i + 1] if i + 1 < len(A) else float('inf')
+            rightB = B[j + 1] if j + 1 < len(B) else float('inf')
+
+
+            if leftA <= rightB and leftB <= rightA:
                 if total % 2:
-                    return min(Aright, Bright)
-                return (min(Aright, Bright) + max(ALeft, BLeft)) / 2
-            elif ALeft > Bright:
+                    return min(rightA, rightB)
+                return (max(leftA, leftB) + min(rightA, rightB)) / 2
+            elif leftA > rightB:
                 r = i - 1
             else:
                 l = i + 1
-
-        
+                
