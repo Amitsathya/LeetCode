@@ -11,13 +11,10 @@ class Solution:
         while True:
             i = (l + r) // 2
             j = half - i - 2
-            
             leftA = A[i] if i >= 0 else float('-inf')
             leftB = B[j] if j >= 0 else float('-inf')
-            rightA = A[i + 1] if i + 1 < len(A) else float('inf')
-            rightB = B[j + 1] if j + 1 < len(B) else float('inf')
-
-
+            rightA = A[i + 1] if (i + 1) < len(A) else float('inf')
+            rightB = B[j + 1] if (j + 1) < len(B) else float('inf')
             if leftA <= rightB and leftB <= rightA:
                 if total % 2:
                     return min(rightA, rightB)
@@ -26,4 +23,3 @@ class Solution:
                 r = i - 1
             else:
                 l = i + 1
-                
