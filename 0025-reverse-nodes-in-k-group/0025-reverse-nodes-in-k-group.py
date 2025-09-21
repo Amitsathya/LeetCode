@@ -13,22 +13,21 @@ class Solution:
             if not kth:
                 break
             groupNext = kth.next
-            
-            prev, curr = kth.next, groupPrev.next
+
+            prev, curr = groupNext, groupPrev.next
             while curr != groupNext:
                 temp = curr.next
                 curr.next = prev
                 prev = curr
                 curr = temp
-
-            tmp = groupPrev.next
+            
+            temp = groupPrev.next
             groupPrev.next = kth
-            groupPrev = tmp
+            groupPrev = temp
         return dummy.next
 
-
     def getKth(self, curr, k):
-        while curr and k > 0:
+        while curr and k:
             curr = curr.next
             k -= 1
         return curr
