@@ -1,14 +1,14 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        res = [[]]
-        def dfs(i, curr):
+        res = []
+        subset = []
+        def dfs(i):
             if i == len(nums):
+                res.append(subset.copy())
                 return
-            curr.append(nums[i])
-            res.append(curr.copy())
-            dfs(i + 1, curr)
-            curr.pop()
-            dfs(i + 1, curr)
-        dfs(0, [])
+            subset.append(nums[i])
+            dfs(i + 1)
+            subset.pop()
+            dfs(i + 1)
+        dfs(0)
         return res
-
