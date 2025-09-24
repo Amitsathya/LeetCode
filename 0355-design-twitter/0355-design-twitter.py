@@ -7,7 +7,7 @@ class Twitter:
 
     def postTweet(self, userId: int, tweetId: int) -> None:
         self.tweetMap[userId].append([-self.count, tweetId])
-        self.count += 1        
+        self.count += 1       
 
     def getNewsFeed(self, userId: int) -> List[int]:
         res = []
@@ -24,12 +24,13 @@ class Twitter:
             res.append(tweetId)
             if index >= 0:
                 count, tweetId = self.tweetMap[followerId][index]
-                heapq.heappush(heap, [count, tweetId, followerId, index - 1])
+                heapq.heappush(heap,[count, tweetId, followerId, index - 1])
         return res
-        
+
 
     def follow(self, followerId: int, followeeId: int) -> None:
         self.followMap[followerId].add(followeeId)
+        
 
     def unfollow(self, followerId: int, followeeId: int) -> None:
         self.followMap[followerId].discard(followeeId)
