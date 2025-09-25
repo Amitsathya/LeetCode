@@ -6,12 +6,12 @@ class Solution:
                 res.append(res.pop() + res.pop())
             elif c == '*':
                 res.append(res.pop() * res.pop())
-            elif c == '/':
-                val1, val2 = res.pop(), res.pop()
-                res.append(int(val2 / val1))
             elif c == '-':
-                val1, val2 = res.pop(), res.pop()
-                res.append(val2 - val1)
+                v1, v2 = res.pop(), res.pop()
+                res.append(v2 - v1)
+            elif c == '/':
+                v1, v2 = res.pop(), res.pop()
+                res.append(int(v2/v1))
             else:
                 res.append(int(c))
-        return res[-1]
+        return res[0]
