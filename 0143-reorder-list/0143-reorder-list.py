@@ -25,3 +25,4 @@ class Solution:
             first.next = second
             second.next = temp1
             first, second = temp1, temp2
+        
