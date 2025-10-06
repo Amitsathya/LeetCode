@@ -13,7 +13,7 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        res = []        
+        res = []
         def dfs(root):
             if not root:
                 res.append('N')
@@ -22,7 +22,7 @@ class Codec:
             dfs(root.left)
             dfs(root.right)
         dfs(root)
-        return ",".join(res)        
+        return ",".join(res)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -30,13 +30,14 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        values = data.split(',')
+        res = data.split(',')
         self.i = 0
+
         def dfs():
-            if values[self.i] == "N":
+            if res[self.i] == 'N':
                 self.i += 1
                 return None
-            root = TreeNode(int(values[self.i]))
+            root = TreeNode(int(res[self.i]))
             self.i += 1
             root.left = dfs()
             root.right = dfs()
