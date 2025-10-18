@@ -1,9 +1,14 @@
-class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        adj = {i: [] for i in range(numCourses)}
-        for c, pre in prerequisites:
-            adj[c].append(pre)
-        cycle, visited = set(), set()
+class Solution(object):
+    def findOrder(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: List[int]
+        """
+        adj = { i : [] for i in range(numCourses)}
+        for c, p in prerequisites:
+            adj[c].append(p)
+        visited, cycle = set(), set()
         output = []
         def dfs(c):
             if c in cycle:
@@ -22,3 +27,5 @@ class Solution:
             if not dfs(i):
                 return []
         return output
+
+        
