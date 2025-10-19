@@ -22,7 +22,7 @@ class WordDictionary:
         def dfs(j, root):
             for i in range(j, len(word)):
                 c = word[i]
-                if c == ".":
+                if c == '.':
                     children = root.children.values()
                     for child in children:
                         if dfs(i + 1, child):
@@ -33,7 +33,8 @@ class WordDictionary:
                         return False
                     root = root.children[c]
             return root.endOfWord
-        return dfs(0, self.root)       
+        return dfs(0, self.root)
+
 
 
 # Your WordDictionary object will be instantiated and called as such:
