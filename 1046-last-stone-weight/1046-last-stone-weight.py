@@ -8,3 +8,4 @@ class Solution:
                 heapq.heappush(stones, -1 * abs(s1 - s2))
         heapq.heappush(stones, 0)
         return stones[0] * -1
+            
