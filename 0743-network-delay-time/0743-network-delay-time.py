@@ -3,19 +3,19 @@ class Solution:
         edges = defaultdict(list)
         for u, v, w in times:
             edges[u].append((v, w))
+
+        minH = [(0, k)]  # (current_time, node)
         visit = set()
-        heap = [[0, k]]
-        time = 0
-        while heap:
-            w1, n1 = heapq.heappop(heap)
-            if n1 in visit:
+        res = 0
+
+        while minH:
+            w, i = heapq.heappop(minH)
+            if i in visit:
                 continue
-            visit.add(n1)
-            time = max(w1, time)
-            for n2, w2 in edges[n1]:
-                if n2 not in visit:
-                    heapq.heappush(heap, (w1 + w2, n2))
-        return time if len(visit) == n else -1
+            visit.add(i)
+            res = max(res, w)
+            for nei, neiCost in edges[i]:
+                if nei not in visit:
+                    heapq.heappush(minH, (w + neiCost, nei))
 
-
-        
+        return res if len(visit) == n else -1
