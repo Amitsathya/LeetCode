@@ -9,9 +9,10 @@ class Solution:
             if r == N - 1 and c == N - 1:
                 return t
             for dr, dc in directions:
-                neiR, neiC = dr + r, dc + c
-                if neiR < 0 or neiC < 0 or neiR == N or neiC == N or (neiR, neiC) in visit:
+                nr, nc = dr + r, dc + c
+                if nc < 0 or nr < 0 or nr == N or nc == N or (nr, nc) in visit:
                     continue
-                visit.add((neiR, neiC))
-                heapq.heappush(minH, [max(t, grid[neiR][neiC]), neiR, neiC])
-            
+                heapq.heappush(minH, [max(t, grid[nr][nc]), nr, nc])
+                visit.add((nr, nc))
+        return 0
+
