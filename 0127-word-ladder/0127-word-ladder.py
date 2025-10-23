@@ -7,19 +7,19 @@ class Solution:
             for j in range(len(w)):
                 pattern = w[:j] + "*" + w[j + 1:]
                 adj[pattern].append(w)
-        q = deque([beginWord])
-        visit = set([beginWord])
         res = 1
+        visit = set([beginWord])
+        q = deque([beginWord])
         while q:
             for _ in range(len(q)):
                 w = q.popleft()
                 if w == endWord:
                     return res
                 for j in range(len(w)):
-                    pattern = w[:j] + "*" + w[j + 1:]
+                    pattern = w[:j] + '*' + w[j + 1:]
                     for w1 in adj[pattern]:
                         if w1 not in visit:
                             q.append(w1)
-                            visit.add(w1)            
+                            visit.add(w1)
             res += 1
         return 0
