@@ -9,15 +9,15 @@ class Solution:
                 dist = abs(x2 - x1) + abs(y2 - y1)
                 edges[i].append([dist, j])
                 edges[j].append([dist, i])
-        visit = set()
         res = 0
+        visit = set()
         minH = [[0, 0]]
         while len(visit) < N:
             cost, i = heapq.heappop(minH)
             if i in visit:
                 continue
-            res += cost
             visit.add(i)
+            res += cost
             for neiCost, nei in edges[i]:
                 if nei not in visit:
                     heapq.heappush(minH, [neiCost, nei])
