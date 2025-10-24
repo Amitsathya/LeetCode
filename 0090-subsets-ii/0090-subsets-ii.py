@@ -14,4 +14,3 @@ class Solution:
             dfs(i + 1, curr)
         dfs(0, [])
         return res
-            
