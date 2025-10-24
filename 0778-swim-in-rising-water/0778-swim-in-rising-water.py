@@ -10,9 +10,7 @@ class Solution:
                 return t
             for dr, dc in directions:
                 nr, nc = dr + r, dc + c
-                if nc < 0 or nr < 0 or nr == N or nc == N or (nr, nc) in visit:
+                if nr < 0 or nc < 0 or nr == N or nc == N or (nr, nc) in visit:
                     continue
-                heapq.heappush(minH, [max(t, grid[nr][nc]), nr, nc])
+                heapq.heappush(minH, [max(grid[nr][nc], t), nr, nc])
                 visit.add((nr, nc))
-        return 0
-
