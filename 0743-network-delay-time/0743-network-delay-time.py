@@ -2,7 +2,7 @@ class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         edges = defaultdict(list)
         for u, v, w in times:
-            edges[u].append((v, w))
+            edges[u].append([v, w])
         visit = set()
         minH = [[0, k]]
         res = 0
