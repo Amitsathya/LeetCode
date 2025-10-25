@@ -1,32 +1,32 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        cols = set()
+        res = []
+        boards = [["."] * n for _ in range(n)]
+
+        col = set()
         posDiag = set()
         negDiag = set()
 
-        res = []
-        board = [["."] * n for _ in range(n)]
-
         def backTrack(r):
             if r == n:
-                copy = ["".join(row) for row in board]
+                copy = ["".join(row) for row in boards]
                 res.append(copy)
                 return
             
             for c in range(n):
-                if c in cols or (r - c) in negDiag or (r + c) in posDiag:
+                if c in col or (r - c) in negDiag or (r + c) in posDiag:
                     continue
                 
-                cols.add(c)
+                col.add(c)
                 posDiag.add(r + c)
                 negDiag.add(r - c)
-                board[r][c] = 'Q'
+                boards[r][c] = 'Q'
 
                 backTrack(r + 1)
                 
-                cols.remove(c)
+                col.remove(c)
                 posDiag.remove(r + c)
                 negDiag.remove(r - c)
-                board[r][c] = '.'
+                boards[r][c] = '.'
         backTrack(0)
         return res
