@@ -2,7 +2,7 @@ class Solution:
     def partition(self, s: str) -> List[List[str]]:
         res, part = [], []
         def dfs(i):
-            if i >= len(s):
+            if i == len(s):
                 res.append(part.copy())
             for j in range(i, len(s)):
                 if self.isPali(s, i, j):
