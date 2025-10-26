@@ -9,7 +9,7 @@ class Solution:
         groupPrev = dummy
 
         while True:
-            kth = self.getKth(groupPrev, k)
+            kth = self.getKth(k, groupPrev)
             if not kth:
                 break
             groupNext = kth.next
@@ -25,8 +25,10 @@ class Solution:
             groupPrev = temp
         return dummy.next
 
-    def getKth(self, curr, k):
-        while curr and k:
-            curr = curr.next
+
+
+    def getKth(self, k, l):
+        while l and k:
+            l = l.next
             k -= 1
-        return curr
+        return l
