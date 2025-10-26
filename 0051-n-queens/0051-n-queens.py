@@ -1,7 +1,7 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         res = []
-        boards = [["."] * n for _ in range(n)]
+        board = [["."] * n for _ in range(n)]
 
         col = set()
         posDiag = set()
@@ -9,7 +9,7 @@ class Solution:
 
         def backTrack(r):
             if r == n:
-                copy = ["".join(row) for row in boards]
+                copy = ["".join(row) for row in board]
                 res.append(copy)
                 return
             
@@ -20,13 +20,13 @@ class Solution:
                 col.add(c)
                 posDiag.add(r + c)
                 negDiag.add(r - c)
-                boards[r][c] = 'Q'
+                board[r][c] = 'Q'
 
                 backTrack(r + 1)
-                
+
                 col.remove(c)
                 posDiag.remove(r + c)
                 negDiag.remove(r - c)
-                boards[r][c] = '.'
+                board[r][c] = '.'
         backTrack(0)
         return res
