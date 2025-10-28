@@ -1,15 +1,13 @@
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        res = 0
-
-        def isValid(l, r):
-            length = 0
-            while l >= 0 and r < len(s) and s[l] == s[r]:
-                length += 1
+        def isPali(l, r):
+            temp = 0
+            while l >= 0 and r < len(s) and s[r] == s[l]:
+                temp += 1
                 l, r = l - 1, r + 1
-            return length
-        
+            return temp
+        res = 0
         for i in range(len(s)):
-            res += isValid(i, i)
-            res += isValid(i, i + 1)
+            res += isPali(i, i)
+            res += isPali(i, i + 1)
         return res
