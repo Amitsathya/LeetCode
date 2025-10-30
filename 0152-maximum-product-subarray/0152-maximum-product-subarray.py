@@ -8,5 +8,5 @@ class Solution:
             temp = currMax * n
             currMax = max(temp, currMin * n, n)
             currMin = min(temp, currMin * n, n)
-            res = max(res, currMax)
+            res = max(currMax, res)
         return res
