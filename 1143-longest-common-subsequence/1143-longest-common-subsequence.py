@@ -6,5 +6,5 @@ class Solution:
                 if text1[i] == text2[j]:
                     res[i][j] = 1 + res[i + 1][j + 1]
                 else:
-                    res[i][j] = max(res[i + 1][j], res[i][j + 1])
+                    res[i][j] = max(res[i + 1][j], res[i][j +1])
         return res[0][0]
