@@ -6,6 +6,7 @@ class Solution:
         for i in range(len(coins) - 1, -1, -1):
             nextDp = [0] * (amount + 1)
             nextDp[0] = 1
+
             for a in range(1, amount + 1):
                 nextDp[a] = dp[a]
                 if a - coins[i] >= 0:
