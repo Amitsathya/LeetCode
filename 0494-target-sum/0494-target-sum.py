@@ -4,7 +4,7 @@ class Solution:
         dp[0][0] = 1
 
         for i in range(len(nums)):
-            for curr_sum, count in dp[i].items():
-                dp[i + 1][curr_sum + nums[i]] += count
-                dp[i + 1][curr_sum - nums[i]] += count
+            for currSum, count in dp[i].items():
+                dp[i + 1][currSum + nums[i]] += count
+                dp[i + 1][currSum - nums[i]] += count
         return dp[len(nums)][target]
