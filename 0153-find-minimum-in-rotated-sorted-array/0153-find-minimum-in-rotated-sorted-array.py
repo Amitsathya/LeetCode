@@ -3,13 +3,10 @@ class Solution:
         l, r = 0, len(nums) - 1
         res = nums[l]
         while l <= r:
-            if nums[l] < nums[r]:
-                res = min(nums[l], res)
-                return res
-            m = (l + r) // 2
-            res = min(nums[m], res)
-            if nums[l] <= nums[m]:
-                l = m + 1
-            else:
+            m = (r + l) // 2
+            res = min(res, nums[m])
+            if nums[m] <= nums[r]:
                 r = m - 1
+            else:
+                l = m + 1
         return res
