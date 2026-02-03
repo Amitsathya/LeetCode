@@ -6,16 +6,14 @@ class Solution:
             m = (l + r) // 2
             if nums[m] == target:
                 return m
-            
-            # left sorted array
-            if nums[l] <= nums[m]:
+            if nums[l] <= nums[m]: #left sorted array
                 if nums[l] <= target < nums[m]:
                     r = m - 1
                 else:
                     l = m + 1
-            else:
+            else: # right sorted array
                 if nums[m] < target <= nums[r]:
                     l = m + 1
                 else:
                     r = m - 1
-        return - 1
+        return -1
