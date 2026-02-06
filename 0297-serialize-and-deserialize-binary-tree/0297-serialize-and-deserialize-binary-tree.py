@@ -23,6 +23,7 @@ class Codec:
             dfs(root.right)
         dfs(root)
         return ",".join(res)
+        
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -32,7 +33,6 @@ class Codec:
         """
         res = data.split(',')
         self.i = 0
-
         def dfs():
             if res[self.i] == 'N':
                 self.i += 1
@@ -43,6 +43,8 @@ class Codec:
             root.right = dfs()
             return root
         return dfs()
+
+
         
 
 # Your Codec object will be instantiated and called as such:
