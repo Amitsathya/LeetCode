@@ -10,7 +10,7 @@ class Solution:
             visited.add((r, c))
             directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
             for dr, dc in directions:
-                row, col = dr + r, dc + c
+                row, col = r + dr, dc + c
                 if dfs(i + 1, row, col):
                     return True
             visited.remove((r, c))
@@ -20,3 +20,4 @@ class Solution:
                 if dfs(0, r, c):
                     return True
         return False
+            
