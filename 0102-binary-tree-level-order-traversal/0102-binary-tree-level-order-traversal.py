@@ -11,7 +11,7 @@ class Solution:
         queue.append(root)
         while queue:
             level = []
-            for i in range(len(queue)):
+            for _ in range(len(queue)):
                 node = queue.popleft()
                 if node:
                     level.append(node.val)
