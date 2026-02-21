@@ -9,8 +9,8 @@ class Solution:
         def isValid(p, root, q):
             if not root:
                 return True
-            if p < root.val < q:
+            elif p < root.val < q:
                 return isValid(p, root.left, root.val) and isValid(root.val, root.right, q)
             else:
                 return False
-        return isValid(float("-inf"), root, float('inf'))
+        return isValid(float('-inf'), root, float('inf'))
