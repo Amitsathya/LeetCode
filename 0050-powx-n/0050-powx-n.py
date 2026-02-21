@@ -1,18 +1,12 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        if n == 0:
-            return 1
-        
-        if n < 0:
-            x = 1 / x
-            n = - n
-        
-        def pow(x, n):
+        def pow(x , n):
+            if x == 0:
+                return 0
             if n == 0:
                 return 1
-            half_pow = pow(x, n // 2)
-            if n % 2 == 0:
-                return half_pow * half_pow
-            else:
-                return half_pow * half_pow * x
-        return pow(x, n)
+
+            res = pow(x * x, n // 2)
+            return x * res if n % 2 else res
+        res =  pow(x, abs(n))
+        return res if n >= 0 else 1/res
