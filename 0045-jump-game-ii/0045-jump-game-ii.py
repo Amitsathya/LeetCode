@@ -9,4 +9,5 @@ class Solution:
             l = r + 1
             r = farthest
             jumps += 1
+            # if farthest == len(nums) - 1:
         return jumps
