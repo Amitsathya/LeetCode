@@ -1,15 +1,15 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
-        def backTrack(i, total, curr):
+        def dfs(i, curr, total):
             if total == target:
                 res.append(curr.copy())
                 return
-            if i >= len(candidates) or total > target:
+            if total > target or i >= len(candidates):
                 return
             curr.append(candidates[i])
-            backTrack(i, total + candidates[i], curr)
+            dfs(i, curr, total + candidates[i])
             curr.pop()
-            backTrack(i + 1, total, curr)
-        backTrack(0, 0, [])
+            dfs(i + 1, curr, total)
+        dfs(0, [], 0)
         return res
