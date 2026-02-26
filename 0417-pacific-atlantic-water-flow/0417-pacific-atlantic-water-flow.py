@@ -1,23 +1,33 @@
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+      
         ROWS, COLS = len(heights), len(heights[0])
-        pacific_visited, atlantic_visited = set(), set()
-        def dfs(r, c, visited):
-            visited.add((r, c))
-            directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
-            for dr, dc in directions:
-                row, col = dr + r, dc + c
-                if 0 <= row < ROWS and 0 <= col < COLS and (row, col) not in visited and heights[row][col] >= heights[r][c]:
-                    dfs(row, col, visited)
+        directions = [[-1, 0],[0, 1], [0, -1],[1, 0]]
+        atlanticVisited = set()
+        pacificVisited = set()
+
+        def bfs(r, c, vist):
+            q = deque([(r, c)])
+            vist.add((r, c))
+            while q:
+                row, col = q.popleft()
+                for dr, dc in directions:
+                    nr, nc = row + dr, col + dc
+                    if 0 <= nr < ROWS and 0 <= nc < COLS and heights[nr][nc] >= heights[row][col] and (nr, nc) not in vist:
+                            q.append((nr, nc))
+                            vist.add((nr, nc))
+        
         for i in range(ROWS):
-            dfs(i, 0, pacific_visited)
-            dfs(i, COLS - 1, atlantic_visited)
-        for i in range(COLS):
-            dfs(0, i, pacific_visited)
-            dfs(ROWS - 1, i, atlantic_visited)
+            bfs(i, 0, pacificVisited)
+            bfs(i, COLS - 1, atlanticVisited)
+        
+        for j in range(COLS):
+            bfs(0, j, pacificVisited)
+            bfs(ROWS - 1, j, atlanticVisited)
+
         res = []
         for r in range(ROWS):
             for c in range(COLS):
-                if (r, c) in pacific_visited and (r, c) in atlantic_visited:
+                if (r, c) in atlanticVisited and (r, c) in pacificVisited:
                     res.append((r, c))
-        return res
+        return res  
