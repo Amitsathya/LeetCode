@@ -1,19 +1,19 @@
 class Solution:
-    def generateParenthesis(self, n):
-        res = []
-        def dfs(openParen, closeParen, temp):
-            if closeParen == n == openParen:
-                temp = "".join(temp)
-                res.append(temp)
+    def generateParenthesis(self, n: int) -> List[str]:
+        res, subset = [], []
+        def dfs(closed, opened):
+            if closed == n and opened == n:
+                res.append("".join(subset))
                 return
-            if openParen < n:
-                temp.append("(")
-                dfs(openParen + 1, closeParen, temp)
-                temp.pop()
             
-            if closeParen < openParen:
-                temp.append(")")
-                dfs(openParen, closeParen + 1, temp)
-                temp.pop()
-        dfs(0, 0, [])
+            if opened < n:
+                subset.append('(')
+                dfs(closed, opened + 1)
+                subset.pop()
+
+            if closed < opened:
+                subset.append(')')
+                dfs(closed + 1, opened)
+                subset.pop()
+        dfs(0, 0)
         return res
