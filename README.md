@@ -16,6 +16,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0130-surrounded-regions](https://github.com/Amitsathya/LeetCode/tree/main/0130-surrounded-regions/) | Medium |
 | [0200-number-of-islands](https://github.com/Amitsathya/LeetCode/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/Amitsathya/LeetCode/tree/main/0207-course-schedule/) | Medium |
+| [0210-course-schedule-ii](https://github.com/Amitsathya/LeetCode/tree/main/0210-course-schedule-ii/) | Medium |
 | [0695-max-area-of-island](https://github.com/Amitsathya/LeetCode/tree/main/0695-max-area-of-island/) | Medium |
 ## Breadth-First Search
 | Problem Name | Difficulty |
@@ -23,6 +24,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0130-surrounded-regions](https://github.com/Amitsathya/LeetCode/tree/main/0130-surrounded-regions/) | Medium |
 | [0200-number-of-islands](https://github.com/Amitsathya/LeetCode/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/Amitsathya/LeetCode/tree/main/0207-course-schedule/) | Medium |
+| [0210-course-schedule-ii](https://github.com/Amitsathya/LeetCode/tree/main/0210-course-schedule-ii/) | Medium |
 | [0695-max-area-of-island](https://github.com/Amitsathya/LeetCode/tree/main/0695-max-area-of-island/) | Medium |
 | [0994-rotting-oranges](https://github.com/Amitsathya/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 ## Union-Find
@@ -58,8 +60,10 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0207-course-schedule](https://github.com/Amitsathya/LeetCode/tree/main/0207-course-schedule/) | Medium |
+| [0210-course-schedule-ii](https://github.com/Amitsathya/LeetCode/tree/main/0210-course-schedule-ii/) | Medium |
 ## Topological Sort
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0207-course-schedule](https://github.com/Amitsathya/LeetCode/tree/main/0207-course-schedule/) | Medium |
+| [0210-course-schedule-ii](https://github.com/Amitsathya/LeetCode/tree/main/0210-course-schedule-ii/) | Medium |
 <!---LeetCode Topics End-->
